@@ -60,16 +60,16 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+        model: process.env.OPENAI_MODEL || "gpt-4.1-nano",
         instructions:
           "Ты голосовой помощник в Яндекс Алисе. Отвечай на русском, " +
           "естественно и удобно для прослушивания. Обычно используй 2–5 " +
           "коротких предложений. Не используй Markdown, таблицы и длинные списки. " +
           "Если нужен подробный ответ, сначала дай краткий вывод.",
         input: [...history, { role: "user", content: command }],
-        max_output_tokens: 220
+        max_output_tokens: 160
       }),
-      signal: AbortSignal.timeout(2800)
+      signal: AbortSignal.timeout(3600)
     });
 
     if (!response.ok) {
