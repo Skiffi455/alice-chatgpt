@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     return reply("Навык пока не настроен. Нужно добавить ключ Gemini на сервере.");
   }
 
-  const model = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
+  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
   try {
     const contents = [
